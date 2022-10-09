@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Hello Extensions",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "action": {
+    "default_popup": "./frame.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "run_at": "document_start",
+      "js": ["inject.js"]
+  }],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "*.html", "*.js"
+        ],  "matches": [
+          "<all_urls>"
+        ]
+      }
+    ],
+  "permissions": [
+    "storage", 
+    "declarativeContent", 
+    "activeTab", 
+    "scripting",
+    "background",
+    "tabs",
+    "nativeMessaging"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+   ]
+}
